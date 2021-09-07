@@ -1,43 +1,32 @@
-const path = require('path');
-const express = require('express');
-const mockAPIResponse = require('./mockAPI.js');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const path = require('path');
+const express = require('express');
 const fetch = require('node-fetch');
+const app = express();
 
 dotenv.config();
-const api_key = process.env.API_KEY;
 
-const app = express();
 app.use(cors());
-app.use(bodyParser.urlencoded({
-    extended: false
-}));
-app.use(bodyParser.json());
+
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+const port = 8080;
+const server = app.listen(port, () => console.log(`Running on port: ${port}`));
+
 app.use(express.static('dist'));
 
-const port = 8081;
-const server = app.listen(port, () => {
-    console.log(`running on localhost: ${port}`);
-});
+app.get('/', (req, res) => res.sendFile(path.resolve('dist/index.html')));
 
-app.get('/', function (req, res) {
-    res.sendFile(path.resolve('dist/index.html'))
-});
+app.post('/language', (req, res) => {
 
-app.get('/test', function (req, res) {
-    res.send(mockAPIResponse)
-});
+    const key = process.env.MC_API_KEY;
+    const url = req.body.url;
 
-app.post('/userText', async(req, res) => {
-    console.log('req.body ===+>', req.body)
-    const response = await fetch(`https://api.meaningcloud.com/sentiment-2.1?key=${api_key}&url=${req.body.formText}&lang=en`);
-    try {
-        const data = await response.json();
-        console.log(data);
-        res.send(data);
-    }catch (error) {
-        console.log("error", error);
-    }
+    fetch(`https://api.meaningcloud.com/sentiment-2.1?key=${key}&url=${url}&lang=en`, { method: 'POST' })
+        .then(response => response.json())
+        .then(data => res.send(data))
+        .catch(error => console.log('error', error));
 });

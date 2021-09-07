@@ -1,28 +1,28 @@
 body {
+  background: #bedbe6;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #FBAB7E;
-  background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 50%, #ffffff 100%);
-;
+  color: rgb(37, 37, 37);
 }
 
-main {
-  flex: 2;
+h1 {
+  font-size: 32px;
 }
 
-section {
+h2 {
+  font-size: 26px;
+}
+
+p {
+  font-size: 17px;
+}
+header {
+  padding: 36px 0;
+}
+
+#page {
   max-width: 800px;
-  font-family: 'Lato', sans-serif;
-  font-size: 1em;
-  margin: 50px;
-  color: #343434;
-}
-
-#results {
-  font-family: 'Parisienne', cursive;
-  font-size: 2em;
-  padding: 10px;
-  color: #ff0062;
+  margin: 50px auto;
 }
 

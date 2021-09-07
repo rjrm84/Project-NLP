@@ -2,45 +2,33 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>Evaluate news article with Meaning Cloud</title>
+    <title>Udacity Natural Language Processing Project</title>
 </head>
 
 <body>
-
-<header>
-    <div class="title">
-        <h1>Sentiment Analysis</h1>
-        <h2>Evaluate a news article with Natural Language Processing</h2>
-    </div>
-</header>
-
-<main>
-    <section id="form">
-        <input id="url" type="text" name="url" value="" placeholder="Add URL here">
-        <button id="submit" type="submit">Submit</button>
-    </section>
-    <section>
-        <strong>Form Results:</strong>
-            <div id="results">
-                <div id="model"></div>
-                <div id="score_tag"></div>
-                <div id="agreement"></div>
-                <div id="subjectivity"></div>
-                <div id="confidence"></div>
-                <div id="irony"></div>
-            </div>
-    </section>
-</main>
-
-<footer>
-    <p> Udacity Project by Raul Rodriguez</p>
-</footer>
+<div id="page">
+    <header>
+        <h1>Udacity Natural Language Processing Project</h1>
+        <h2>Sentiment Analysis</h2>
+        <p>Sentiment Analysis analyzes texts and detects their polarity, subjectivity, irony and emotional agreement.</p>
+    </header>
+    <main id="main">
+        <div id="error"></div>
+        <section id="form">
+            <input id="url" type="text" name="url" value="" placeholder="Add URL here">
+            <button id="submit" type="submit">Submit</button>
+        </section>
+        <section id="results"></section>
+    </main>
+</div>
+</body>
 <script>
     if ('serviceWorker' in navigator) {
-        window.addEventListener('load',()=> {
-            navigator.serviceWorker.register('/service-worker.js');
+        window.addEventListener('load', () => {
+            navigator.serviceWorker
+                .register('/service-workers.js')
+                .then(reg => console.log('Service Worker: Registered!'));
         });
     }
 </script>
-</body>
 </html>

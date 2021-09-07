@@ -1,7 +1,5 @@
-function checkForName(inputText) {
-    console.log("::: Running checkForName :::", inputText);
+const urlValidation = (url) => {
     const r = new RegExp(/^(http|https):\/\/[^ "]+$/);
-    return r.test(inputText);
+    return r.test(url);
 }
-
-export { checkForName }
+export default urlValidation;

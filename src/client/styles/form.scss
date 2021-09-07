@@ -1,21 +1,33 @@
 form {
-  background-color: #F7CE68;
   border: 1px solid #545454;
-  color: #545454;
-  border-radius: 90px;
+  border-radius: 3px;
   padding: 40px;
-  font-family: 'Lato', sans-serif;
-  font-size: 1em;
+}
+#error p {
+  background: #e67267;
+  padding: 12px 24px;
+  margin: 4px 0;
+}
+input {
+  display: inline-block;
+  background: #fff;
+  padding: 12px 24px;
+  margin: 8px 0;
+  border: transparent;
+  width: 100%;
 }
 
-input {
-  padding: 5px 20px;
-  width: 100%;
-  border: 1px solid #545454;
-  border-radius: 25px;
-  line-height: 16px;
-  margin: 10px 0;
-  font-family: 'Lato', sans-serif;
-  font-size: 1em;
-  color: #545454;
+button {
+  background: #995D48;
+  border-color: transparent;
+  border-radius: 7px;
+  padding: 12px 24px;
+  color: white;
+  transition: all 0.3s ease-in;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.7;
+    transition: all 0.3s ease-out;
+  }
 }

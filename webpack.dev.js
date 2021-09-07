@@ -1,5 +1,4 @@
 const path = require('path')
-const webpack = require('webpack')
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -11,10 +10,7 @@ module.exports = {
     devtool: 'source-map',
     stats: 'verbose',
     output: {
-        path: path.join(__dirname, 'dist'),
-        filename: 'bundle.min.js',
-        libraryTarget: 'var',
-        library: 'Client'
+        path: path.resolve(process.cwd(), 'dist')
     },
     module: {
         rules: [
