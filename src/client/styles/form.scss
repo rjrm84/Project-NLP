@@ -1,33 +1,74 @@
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+
+@mixin button-bg($bg) {
+  background: $bg;
+  &:hover {
+    background:darken($bg,8%);
+    transition: all 0.3s ease;
+  }
+  &:active {
+    background:darken($bg,25%);
+  }
+}
+
+button {
+  color:white;
+  text-decoration:none;
+  padding:5px 10px;
+  border-radius:3px;
+  font-family: 'Poiret One', cursive;
+  font-size:1.3em;
+  width: 200px;
+  @include button-bg(#2ecc71);
+}
+
+
+
+/*Other Stylez*/
+.wrap {
+  margin:0 auto;
+  width:800px;
+  text-align:center;
+}
+
+h1 {
+  font-family: 'Poiret One', cursive;
+  font-size:4em;
+}
+
 form {
   border: 1px solid #545454;
   border-radius: 3px;
   padding: 40px;
 }
 #error p {
-  background: #e67267;
+  background: #a2180c;
   padding: 12px 24px;
   margin: 4px 0;
+  border-radius: 2px;
+  color: white;
 }
 input {
   display: inline-block;
-  background: #fff;
+  background: transparent;
   padding: 12px 24px;
   margin: 8px 0;
-  border: transparent;
+  border: 1px solid #01070e;
+  border-radius: 3px;
   width: 100%;
 }
 
-button {
-  background: #995D48;
-  border-color: transparent;
-  border-radius: 7px;
-  padding: 12px 24px;
-  color: white;
-  transition: all 0.3s ease-in;
-  cursor: pointer;
-
-  &:hover {
-    opacity: 0.7;
-    transition: all 0.3s ease-out;
-  }
-}
+//button {
+//  background: #995D48;s
+//  border-color: transparent;
+//  border-radius: 7px;
+//  padding: 12px 24px;
+//  color: white;
+//  transition: all 0.3s ease-in;
+//  cursor: pointer;
+//
+//  &:hover {
+//    opacity: 0.7;
+//    transition: all 0.3s ease-out;
+//  }
+//}

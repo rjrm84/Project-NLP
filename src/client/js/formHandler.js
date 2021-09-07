@@ -11,10 +11,13 @@ const handleSubmit = ()  => {
         const results = document.getElementById('results');
         results.innerHTML = '<p>Loading...</p>';
 
-        fetch('http://localhost:8080/', {
+        fetch('http://localhost:8080/' + url, {
             method: 'POST',
             credentials: 'same-origin',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify(payload)
         })
             .then(response => response.json())

@@ -1,4 +1,4 @@
-const bodyParser = require('body-parser');
+require('body-parser');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
@@ -14,15 +14,19 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 const port = 8080;
-const server = app.listen(port, () => console.log(`Running on port: ${port}`));
-
+app.listen(port, () => console.log(`Running on port: ${port}`));
 app.use(express.static('dist'));
 
 app.get('/', (req, res) => res.sendFile(path.resolve('dist/index.html')));
 
 app.post('/language', (req, res) => {
 
-    const key = process.env.MC_API_KEY;
+
+
+
+
+
+    const key = process.env.API_KEY;
     const url = req.body.url;
 
     fetch(`https://api.meaningcloud.com/sentiment-2.1?key=${key}&url=${url}&lang=en`, { method: 'POST' })
