@@ -10,7 +10,8 @@ module.exports = {
     devtool: 'source-map',
     stats: 'verbose',
     output: {
-        path: path.resolve(process.cwd(), 'dist')
+        libraryTarget: 'var',
+        library: 'Client'
     },
     module: {
         rules: [

@@ -11,8 +11,9 @@ const handleSubmit = ()  => {
         const results = document.getElementById('results');
         results.innerHTML = '<p>Loading...</p>';
 
-        fetch('http://localhost:8080/' + url, {
+        fetch('http://localhost:8081/language' ,  {
             method: 'POST',
+            mode: 'cors',
             credentials: 'same-origin',
             headers: {
                 'Accept': 'application/json',
