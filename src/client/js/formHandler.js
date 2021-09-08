@@ -1,6 +1,7 @@
 import uiChecker from './uiChecker';
 import urlValidation from './nameChecker';
 
+
 const handleSubmit = ()  => {
     const url = document.getElementById('url').value;
     const error = document.getElementById('error');
